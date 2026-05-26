@@ -1,0 +1,119 @@
+<main id="main-content" class="case-study">
+  <section class="case-hero">
+    <div class="container case-hero-grid">
+      <div>
+        <a class="back-link" routerLink="/">Back to portfolio</a>
+        <p class="eyebrow">{{ project.category }} / {{ project.status }}</p>
+        <h1>{{ project.title }}</h1>
+        <p class="case-intro">
+          An in-development Angular concept build for compliance teams reviewing
+          contracts and policies through structured metadata, approval state,
+          and traceable evidence.
+        </p>
+        <div class="tags case-tags">
+          @for (tag of project.tags; track tag) {
+          <span>{{ tag }}</span>
+          }
+        </div>
+        <a
+          class="button primary"
+          [href]="project.repository"
+          target="_blank"
+          rel="noopener"
+        >
+          View repository
+        </a>
+      </div>
+      <figure class="case-visual">
+        <img
+          src="/assets/images/document-workspace-concept.jpg"
+          alt="Concept view of the Document Intelligence Platform review workspace"
+        />
+        <figcaption>Product UI concept / implementation in progress</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="content-section case-overview">
+    <div class="container">
+      <app-section-heading
+        label="Product Context"
+        title="Turning document review into a traceable workflow"
+      />
+      <div class="overview-grid">
+        <article>
+          <h3>Problem</h3>
+          <p>
+            Compliance review becomes slow when source files, metadata edits,
+            review statuses, and supporting evidence live in disconnected tools.
+          </p>
+        </article>
+        <article>
+          <h3>Users</h3>
+          <p>
+            Reviewers, approvers, and administrators managing controlled
+            contracts and published policy documents.
+          </p>
+        </article>
+        <article>
+          <h3>Frontend Goal</h3>
+          <p>
+            Present dynamic forms, queue state, permission-aware actions, and
+            cited summary results in one accessible Angular experience.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section workflow-section">
+    <div class="container">
+      <app-section-heading
+        label="Workflow"
+        title="A structured path from upload to publication"
+      />
+      <ol class="workflow">
+        @for (step of workflowSteps; track step.title; let number = $index) {
+        <li>
+          <span class="step-number">{{ number + 1 }}</span>
+          <div>
+            <h3>{{ step.title }}</h3>
+            <p>{{ step.detail }}</p>
+          </div>
+        </li>
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="content-section architecture-section">
+    <div class="container architecture-layout">
+      <app-section-heading
+        label="Engineering Direction"
+        title="Angular-first architecture with explicit boundaries"
+      />
+      <ul class="boundary-list">
+        @for (boundary of architectureBoundaries; track boundary) {
+        <li>{{ boundary }}</li>
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="delivery-band">
+    <div class="container delivery-layout">
+      <div>
+        <p class="section-label">Next Delivery Steps</p>
+        <h2>From product concept to demonstrable implementation</h2>
+      </div>
+      <div class="delivery-items">
+        <p>Build the document queue, review detail, and metadata form flows.</p>
+        <p>
+          Add API contracts and server-sent status events at the Java
+          integration boundary.
+        </p>
+        <p>Validate critical workflow paths through automated browser tests.</p>
+      </div>
+    </div>
+  </section>
+</main>

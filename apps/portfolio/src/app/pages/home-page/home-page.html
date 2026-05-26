@@ -1,0 +1,116 @@
+<main id="main-content">
+  <section class="hero" aria-label="Introduction">
+    <img
+      class="hero-image"
+      src="/assets/images/document-workspace-concept.jpg"
+      alt="Concept interface for a document review workspace with metadata and citation panels"
+      fetchpriority="high"
+    />
+    <div class="hero-scrim" aria-hidden="true"></div>
+    <div class="container hero-content">
+      <p class="eyebrow">Angular-First Full Stack Engineer</p>
+      <h1>{{ profile.name }}</h1>
+      <p class="hero-role">{{ profile.role }}</p>
+      <p class="hero-summary">{{ profile.focus }}</p>
+      <div class="hero-actions">
+        <a
+          class="button primary"
+          routerLink="/projects/document-intelligence-platform"
+        >
+          View featured project
+        </a>
+        <a
+          class="button secondary"
+          [href]="profile.resume"
+          target="_blank"
+          rel="noopener"
+        >
+          Download Resume
+        </a>
+      </div>
+      <p class="concept-note">
+        Featured visual: Document Intelligence Platform concept build
+      </p>
+    </div>
+  </section>
+
+  <section class="signal-strip" aria-label="Primary engineering strengths">
+    <div class="container signal-grid">
+      <div>
+        <strong>Angular 21</strong>
+        <span>Modern UI delivery</span>
+      </div>
+      <div>
+        <strong>Nx Monorepo</strong>
+        <span>Scalable organization</span>
+      </div>
+      <div>
+        <strong>Java API Integration</strong>
+        <span>Full stack boundary</span>
+      </div>
+      <div>
+        <strong>Accessible Workflows</strong>
+        <span>Enterprise usability</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section" id="work">
+    <div class="container">
+      <app-section-heading
+        label="Selected Work"
+        title="Enterprise workflow products with a frontend focus"
+        description="Current work centers on document operations, reliable state presentation, and maintainable Angular architecture."
+      />
+      <div class="projects-grid">
+        @for (project of projects; track project.title) {
+        <app-project-card [project]="project" />
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section skills-section" id="skills">
+    <div class="container">
+      <app-section-heading
+        label="Capabilities"
+        title="Technical range grounded in UI delivery"
+        description="A modern Angular foundation with deliberate integration, quality, and architecture exposure."
+      />
+      <div class="skills-grid">
+        @for (group of skillGroups; track group.title) {
+        <article class="skill-group">
+          <h3>{{ group.title }}</h3>
+          <div class="skill-list">
+            @for (skill of group.skills; track skill) {
+            <span>{{ skill }}</span>
+            }
+          </div>
+        </article>
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-band">
+    <div class="container contact-layout">
+      <div>
+        <p class="section-label">Connect</p>
+        <h2>Building disciplined Angular experiences for operational teams.</h2>
+      </div>
+      <div class="contact-actions">
+        <a class="button primary" [href]="profile.email">Email Shawn</a>
+        @for (link of socialLinks.slice(1); track link.label) {
+        <a
+          class="button tertiary"
+          [href]="link.href"
+          target="_blank"
+          rel="noopener"
+        >
+          {{ link.label }}
+        </a>
+        }
+      </div>
+    </div>
+  </section>
+</main>

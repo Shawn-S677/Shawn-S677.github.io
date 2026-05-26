@@ -1,0 +1,14 @@
+<header class="site-header">
+  <nav class="container navigation" aria-label="Primary navigation">
+    <a class="brand" routerLink="/" aria-label="Shawn Shen home">
+      <span class="brand-mark" aria-hidden="true">SS</span>
+      <span>{{ profile.name }}</span>
+    </a>
+    <div class="nav-links">
+      <a routerLink="/" fragment="work">Work</a>
+      <a routerLink="/" fragment="skills">Skills</a>
+      <a [href]="profile.resume" target="_blank" rel="noopener">Resume</a>
+      <a [href]="socialLinks[1].href" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </nav>
+</header>

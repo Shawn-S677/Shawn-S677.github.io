@@ -1,0 +1,24 @@
+<footer class="site-footer" id="contact">
+  <div class="container footer-layout">
+    <div>
+      <p class="footer-title">{{ profile.name }}</p>
+      <p class="footer-copy">
+        Angular-first full stack engineering for enterprise workflows.
+      </p>
+    </div>
+    <div class="contact-links" aria-label="Contact links">
+      @for (link of socialLinks; track link.label) {
+      <a
+        [href]="link.href"
+        [target]="link.label === 'Email' ? null : '_blank'"
+        rel="noopener"
+      >
+        {{ link.label }}
+      </a>
+      }
+    </div>
+    <p class="copyright">
+      &copy; {{ year }} {{ profile.name }}. Built with Angular and Nx.
+    </p>
+  </div>
+</footer>
